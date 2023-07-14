@@ -62,7 +62,7 @@ function existsUsers($login)
 function calculateDaysToBirthday($birthdate): int
 {
     if (empty($birthdate)) {
-        return 0; // Return 0 if the birthdate is not provided
+        return 0; 
     }
 
     $today = new DateTime();
