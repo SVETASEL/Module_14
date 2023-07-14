@@ -5,13 +5,9 @@ if (!empty($_POST)) {
     $login = $_POST['login'] ?? '';
     $password = $_POST['password'] ?? '';
     $birthdate = $_POST['birthdate'] ?? '';
-
-    // Retrieve the hashed password from the user database
     $hashedPassword = getPasswordHash($login);
 
-    // Verify the entered password against the hashed password
     if ($hashedPassword && password_verify($password, $hashedPassword)) {
-        // Set the login username in the cookie
         setcookie('login', $login, 0, '/');
         setcookie('birthdate', $birthdate, 0, '/');
         header('Location: index.php');
